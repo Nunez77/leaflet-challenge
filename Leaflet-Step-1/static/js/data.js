@@ -30,9 +30,7 @@ options.timeZone = 'UTC';
             });
         };
      
-        // Return data on JSON format to mimic and API endpoint
-        // console.log(JSON.stringify(cleanData, null, 2));
+        // Return data on JSON format
         var myJSON = JSON.stringify(cleanData, null, 2);
         document.getElementById("jsonData").textContent = myJSON;
-     
     });

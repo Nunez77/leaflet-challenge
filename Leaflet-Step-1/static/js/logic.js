@@ -153,13 +153,13 @@ d3.json(url).then((data) => {
     };
     console.log(cleanData);
 
-    // Once we get a response, create a geoJSON layer containing the features array and add a popup for each marker
-    // then, send the layer to the createMap() function.
+
+    // Create a geojson with the response data
     var earthquakes = L.geoJSON(data.features, {
         onEachFeature: addPopup
     });
 
     // Call the function to load the map and the circles
     createMap(earthquakes, cleanData);
-
+    
 });
