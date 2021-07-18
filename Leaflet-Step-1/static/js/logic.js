@@ -104,34 +104,36 @@ function createMap(earthquakes, data) {
     }).addTo(myMap);
 };
 
-//  United States Geological Survey (USGS) All Earthquakes from the Past 7 Days
-url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+// All Earthquakes -> Past 30 Days
+url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+// All Earthquakes -> Past 7 Days
+// url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+// All Earthquakes -> Yesterday
+// url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
+// All Earthquakes -> Past hour
+// url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
 
+// Import data from the url, store it in a variable and print the data
 d3.json(url).then((data) => {
-
-    // Store the imported data to a variable
     var EarthquakesData = data;
-    // Print the data
     console.log(EarthquakesData);
+    console.log(Object.keys(EarthquakesData));  // object keys
 
-    // Print the object keys
-    console.log(Object.keys(EarthquakesData));
-
-    // Get the date that the data was generated
+    // Grab the date
     var dataDate = new Date(EarthquakesData.metadata.generated);
     console.log(`Data retrieved at: ${dataDate}`);
 
-    // Number of data points on the data set
+    // Number of records retrieved
     console.log(`Number of records: ${EarthquakesData.metadata.count}`);
-    // Earthquakes magnitude
+    // Magnitudes
     console.log(EarthquakesData.features[0].properties.mag);
-    // Earthquakes time
+    // Time
     console.log(new Date(EarthquakesData.features[0].properties.time));
-    // Earthquakes lat
+    // Latitude
     console.log(EarthquakesData.features[0].geometry.coordinates[0]);
-    // Earthquakes lon
+    // Longitude
     console.log(EarthquakesData.features[0].geometry.coordinates[1]);
-    // Earthquakes depth
+    // Depth
     console.log(EarthquakesData.features[0].geometry.coordinates[2]);
 
 
