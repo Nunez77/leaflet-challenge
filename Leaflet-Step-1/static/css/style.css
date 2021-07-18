@@ -1,0 +1,36 @@
+/* Default script */
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+/* Table format */
+table{
+  font-size: 10pt;
+  text-align: center;
+}
+
+/* Table Title */
+#tr-title{
+  text-align: justify;
+}
+
+/* Class Selectors Columns */
+td:nth-child(2) + td { text-align: justify; }
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 10px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: rgb(151, 150, 150);
+  background-color: #34566e;
+}
